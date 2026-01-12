@@ -1,4 +1,4 @@
-/* style.css - COMPLETE FILE */
+/* style.css - WORKING VERSION */
 :root {
     --primary: #6c5ce7;
     --primary-light: #8578ed;
@@ -38,7 +38,7 @@ body {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
-.container h1 {
+h1 {
     color: var(--primary);
     font-size: 2.2rem;
     text-align: center;
@@ -49,26 +49,11 @@ body {
 
 .balance-card {
     background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    color: white;
     padding: 25px;
     border-radius: 16px;
     text-align: center;
     margin-bottom: 25px;
     box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.balance-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 15px 15px;
-    opacity: 0.3;
 }
 
 .balance-card h3 {
@@ -76,6 +61,7 @@ body {
     margin-bottom: 10px;
     font-weight: 500;
     opacity: 0.9;
+    color: white;
 }
 
 #balance {
@@ -83,7 +69,7 @@ body {
     font-weight: 700;
     margin: 10px 0;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    color: white; /* BALANCE AMOUNT IS WHITE */
+    color: white;
 }
 
 .form-container {
@@ -103,8 +89,7 @@ body {
     margin-bottom: 5px;
 }
 
-.form-container input,
-.form-container select {
+input, select {
     width: 100%;
     padding: 14px;
     border: 2px solid #e0e0e0;
@@ -114,14 +99,13 @@ body {
     background-color: white;
 }
 
-.form-container input:focus,
-.form-container select:focus {
+input:focus, select:focus {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
 }
 
-.form-container input::placeholder {
+input::placeholder {
     color: #aaa;
 }
 
@@ -218,14 +202,6 @@ body {
     color: var(--text);
 }
 
-.transaction-category {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    background: rgba(108, 92, 231, 0.1);
-    padding: 3px 8px;
-    border-radius: 5px;
-}
-
 .report-section {
     margin-top: 25px;
 }
@@ -285,7 +261,6 @@ body {
     font-weight: bold;
 }
 
-/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -362,11 +337,5 @@ body {
     
     .modal-buttons {
         flex-direction: column;
-    }
-    
-    .list li {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
     }
 }
