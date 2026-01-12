@@ -36,9 +36,23 @@
 
         <div class="report-section">
             <button class="btn report-btn" onclick="generateReport()">Generate Monthly Report</button>
+            <button class="btn reset-btn" onclick="resetAll()">Reset All Transactions</button>
             <div id="report-display"></div>
         </div>
     </div>
+
+    <!-- Reset Confirmation Modal -->
+    <div id="resetModal" class="modal">
+        <div class="modal-content">
+            <h3>Reset Confirmation</h3>
+            <p>Are you sure you want to reset all transactions? This action cannot be undone.</p>
+            <div class="modal-buttons">
+                <button class="btn confirm-reset-btn" onclick="confirmReset()">Yes, Reset All</button>
+                <button class="btn cancel-reset-btn" onclick="cancelReset()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
