@@ -1,4 +1,5 @@
-let transactions = [];
+// 1. Get data from localStorage, OR start with an empty array if nothing exists
+let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
 const list = document.getElementById('list');
 const balance = document.getElementById('balance');
@@ -20,11 +21,18 @@ function addTransaction() {
     };
 
     transactions.push(transaction);
+    
+    updateLocalStorage(); // Save the new list!
     updateDOM();
     updateValues();
 
     text.value = '';
     amount.value = '';
+}
+
+// 2. New Function: Save the array to the browser's memory
+function updateLocalStorage() {
+    localStorage.setItem('transactions', JSON.stringify(transactions));
 }
 
 function updateValues() {
@@ -41,9 +49,17 @@ function updateDOM() {
         item.classList.add(t.amount < 0 ? 'minus' : 'plus');
         item.innerHTML = `
             ${t.text} <span>${t.category}</span> <span>${sign}${Math.abs(t.amount)}</span>
+            <button class="delete-btn" onclick="removeTransaction(${t.id})">x</button>
         `;
         list.appendChild(item);
     });
+}
+
+// 3. New Function: Allow deleting transactions
+function removeTransaction(id) {
+    transactions = transactions.filter(transaction => transaction.id !== id);
+    updateLocalStorage();
+    init();
 }
 
 function generateReport() {
@@ -61,3 +77,11 @@ function generateReport() {
     reportHTML += '</ul>';
     reportDisplay.innerHTML = reportHTML;
 }
+
+// Run this when the page loads
+function init() {
+    updateDOM();
+    updateValues();
+}
+
+init();
