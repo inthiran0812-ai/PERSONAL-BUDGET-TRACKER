@@ -1,3 +1,4 @@
+/* style.css */
 :root {
     --primary: #6c5ce7;
     --primary-light: #8578ed;
@@ -101,7 +102,8 @@ body {
     margin-bottom: 5px;
 }
 
-input, select {
+.form-container input,
+.form-container select {
     width: 100%;
     padding: 14px;
     border: 2px solid #e0e0e0;
@@ -111,13 +113,14 @@ input, select {
     background-color: white;
 }
 
-input:focus, select:focus {
+.form-container input:focus,
+.form-container select:focus {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
 }
 
-input::placeholder {
+.form-container input::placeholder {
     color: #aaa;
 }
 
@@ -134,11 +137,12 @@ input::placeholder {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .add-btn {
     background: linear-gradient(to right, var(--success), #27ae60);
-    margin-top: 10px;
 }
 
 .add-btn:hover {
@@ -201,13 +205,22 @@ input::placeholder {
 
 .report-btn {
     background: linear-gradient(to right, var(--primary), var(--primary-light));
-    width: 100%;
 }
 
 .report-btn:hover {
     background: linear-gradient(to right, #5b4fcf, #6c5ce7);
     transform: translateY(-2px);
     box-shadow: 0 7px 14px rgba(108, 92, 231, 0.3);
+}
+
+.reset-btn {
+    background: linear-gradient(to right, var(--warning), #e67e22);
+}
+
+.reset-btn:hover {
+    background: linear-gradient(to right, #e67e22, #d35400);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(230, 126, 34, 0.3);
 }
 
 #report-display {
@@ -245,6 +258,68 @@ input::placeholder {
     font-weight: bold;
 }
 
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-content h3 {
+    color: var(--warning);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: var(--text);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.confirm-reset-btn {
+    background: linear-gradient(to right, #e74c3c, #c0392b);
+    padding: 12px 25px;
+    flex: 1;
+}
+
+.confirm-reset-btn:hover {
+    background: linear-gradient(to right, #c0392b, #a93226);
+}
+
+.cancel-reset-btn {
+    background: linear-gradient(to right, #95a5a6, #7f8c8d);
+    padding: 12px 25px;
+    flex: 1;
+}
+
+.cancel-reset-btn:hover {
+    background: linear-gradient(to right, #7f8c8d, #6c7b7d);
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 20px;
@@ -256,5 +331,9 @@ input::placeholder {
     
     .form-container {
         padding: 20px;
+    }
+    
+    .modal-buttons {
+        flex-direction: column;
     }
 }
