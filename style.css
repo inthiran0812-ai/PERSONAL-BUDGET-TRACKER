@@ -1,4 +1,4 @@
-/* style.css */
+/* style.css - COMPLETE FILE */
 :root {
     --primary: #6c5ce7;
     --primary-light: #8578ed;
@@ -83,6 +83,7 @@ body {
     font-weight: 700;
     margin: 10px 0;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: white; /* BALANCE AMOUNT IS WHITE */
 }
 
 .form-container {
@@ -197,6 +198,32 @@ body {
 .list li.minus {
     border-left-color: var(--danger);
     background-color: rgba(231, 76, 60, 0.05);
+}
+
+.transaction-amount {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.plus .transaction-amount {
+    color: var(--success);
+}
+
+.minus .transaction-amount {
+    color: var(--danger);
+}
+
+.transaction-desc {
+    font-weight: 500;
+    color: var(--text);
+}
+
+.transaction-category {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    background: rgba(108, 92, 231, 0.1);
+    padding: 3px 8px;
+    border-radius: 5px;
 }
 
 .report-section {
@@ -335,5 +362,11 @@ body {
     
     .modal-buttons {
         flex-direction: column;
+    }
+    
+    .list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
 }
